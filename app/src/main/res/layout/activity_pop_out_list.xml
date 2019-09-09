@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".popout.PopOutListActivity">
 
+    <include layout="@layout/header" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pop_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
