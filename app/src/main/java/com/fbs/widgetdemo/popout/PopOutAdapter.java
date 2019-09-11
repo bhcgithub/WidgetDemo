@@ -18,22 +18,33 @@ import java.util.List;
  * Created by Administrator on 2019/9/9
  */
 public class PopOutAdapter extends RecyclerView.Adapter<PopOutAdapter.VH> {
-    private final List<Drawable> mDatas;
+    private final List<PopOutBean> mDatas;
+    private PopOutItemListener itemListener;
+
+    public interface PopOutItemListener {
+        void onItemClick(PopOutBean outBean);
+    }
+
+    public void setOnPopOutItemListener(PopOutItemListener onPopOutItemListener) {
+        itemListener = onPopOutItemListener;
+    }
 
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate =LayoutInflater.from(parent.getContext()).inflate(R.layout.popoutitem,parent, false);
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.popoutitem, parent, false);
         return new VH(inflate);
     }
 
-    public PopOutAdapter(List<Drawable> data) {
-        this.mDatas=data;
+    public PopOutAdapter(List<PopOutBean> data) {
+        this.mDatas = data;
     }
 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
-            holder.Im.setImageDrawable(mDatas.get(position));
+        holder.Im.setImageDrawable(mDatas.get(position).getDrawable());
+        if (itemListener!=null)
+            itemListener.onItemClick(mDatas.get(position));
     }
 
     @Override
@@ -41,12 +52,12 @@ public class PopOutAdapter extends RecyclerView.Adapter<PopOutAdapter.VH> {
         return mDatas.size();
     }
 
-    public class VH extends RecyclerView.ViewHolder{
+    public class VH extends RecyclerView.ViewHolder {
         private final ImageView Im;
 
         public VH(@NonNull View itemView) {
             super(itemView);
-            Im=(ImageView) itemView.findViewById(R.id.pop_item_iv);
+            Im = (ImageView) itemView.findViewById(R.id.pop_item_iv);
         }
     }
 }

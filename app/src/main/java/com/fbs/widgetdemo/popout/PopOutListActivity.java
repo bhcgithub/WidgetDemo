@@ -27,7 +27,8 @@ public class PopOutListActivity extends AppCompatActivity {
     private ImageView brack;
     private TextView title;
     private RecyclerView mLv;
-    private List<Drawable> mdata;
+    private List<PopOutBean> mdata;
+    private PopOutAdapter popOutAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,24 +50,36 @@ public class PopOutListActivity extends AppCompatActivity {
                 finish();
             }
         });
+        if (popOutAdapter!=null)
+            popOutAdapter.setOnPopOutItemListener(new PopOutAdapter.PopOutItemListener() {
+
+                @Override
+                public void onItemClick(PopOutBean outBean) {
+
+                }
+            });
     }
 
     private void addData() {
         if (mdata == null)
             mdata = new ArrayList<>();
-        mdata.add(getResources().getDrawable(R.mipmap.pop_card));
-        mdata.add(getResources().getDrawable(R.mipmap.pop_card_data));
-        mdata.add(getResources().getDrawable(R.mipmap.pop_card));
-        mdata.add(getResources().getDrawable(R.mipmap.pop_card_data));
-        mdata.add(getResources().getDrawable(R.mipmap.pop_card));
-        mdata.add(getResources().getDrawable(R.mipmap.pop_card_data));
-        mdata.add(getResources().getDrawable(R.mipmap.pop_card));
+        mdata.add(new PopOutBean(getResources().getDrawable(R.mipmap.pop_card), ""));
+        mdata.add(new PopOutBean(getResources().getDrawable(R.mipmap.pop_card_data), ""));
+        mdata.add(new PopOutBean(getResources().getDrawable(R.mipmap.pop_card), ""));
+        mdata.add(new PopOutBean(getResources().getDrawable(R.mipmap.pop_card_data), ""));
+        mdata.add(new PopOutBean(getResources().getDrawable(R.mipmap.pop_card), ""));
+        mdata.add(new PopOutBean(getResources().getDrawable(R.mipmap.pop_card_data), ""));
+        mdata.add(new PopOutBean(getResources().getDrawable(R.mipmap.pop_card), ""));
+        mdata.add(new PopOutBean(getResources().getDrawable(R.mipmap.pop_card_data), ""));
+        mdata.add(new PopOutBean(getResources().getDrawable(R.mipmap.pop_card), ""));
+        mdata.add(new PopOutBean(getResources().getDrawable(R.mipmap.pop_card_data), ""));
     }
 
     @SuppressLint("WrongConstant")
     private void setData() {
-        PopOutAdapter popOutAdapter = new PopOutAdapter(mdata);
+        popOutAdapter = new PopOutAdapter(mdata);
         LinearLayoutManager manager = new LinearLayoutManager(this);
+
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mLv.setLayoutManager(manager);
         mLv.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
