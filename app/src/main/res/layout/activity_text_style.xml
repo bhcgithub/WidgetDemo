@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".textstyle.TextStyleActivity">
+
+    <TextView
+        android:id="@+id/tv_add_agent"
+        style="@style/ll_owner_info_btn_style"
+        android:layout_marginTop="20dp"
+        android:text="添加代理人"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <com.fbs.widgetdemo.utils.addsubtract.AmountView
+        android:id="@+id/av_shi"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        app:defaultCount="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_add_agent"
+        app:maxCount="20"
+        app:minCount="1"
+        tools:ignore="MissingConstraints" />
+    <LinearLayout
+        android:id="@+id/ll_rent_date_start"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/av_shi"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_contract_ll"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/tv_rent_date_start"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="承租开始日期"
+            android:textColor="#B5B5B5"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_contract_time"
+            android:scaleType="center"
+            android:src="@mipmap/right_small" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,12 +18,14 @@
         <item name="android:gravity">center_vertical</item>
         <item name="android:orientation">horizontal</item>
     </style>
+
     <style name="ll_owner_info_tv_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">#ff000000</item>
     </style>
+
     <style name="ll_owner_info_et_style">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
@@ -41,5 +43,21 @@
 
         <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
         <item name="android:windowExitAnimation">@anim/dialog_exit</item>
+    </style>
+
+
+    <!--文字样式-->
+    <style name="ll_owner_info_btn_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/add_agent_btn_selector</item>
+        <item name="android:drawableRight">@mipmap/add_r</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">12sp</item>
     </style>
 </resources>

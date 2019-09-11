@@ -1,4 +1,4 @@
-package com.fbs.widgetdemo.popout;
+package com.fbs.widgetdemo.popout.card;
 
 import android.graphics.drawable.Drawable;
 

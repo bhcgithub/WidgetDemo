@@ -1,6 +1,7 @@
-package com.fbs.widgetdemo.popout;
+package com.fbs.widgetdemo.popout.card;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public class Step1Bean implements Serializable {
     private List<CardTypeBean> cardType;
 
     public String getCardTypeName() {
-        return cardTypeName;
+        return cardTypeName == null ? "" : cardTypeName;
     }
 
     public void setCardTypeName(String cardTypeName) {
@@ -26,6 +27,9 @@ public class Step1Bean implements Serializable {
     }
 
     public List<CardTypeBean> getCardType() {
+        if (cardType == null) {
+            return new ArrayList<>();
+        }
         return cardType;
     }
 
@@ -43,7 +47,7 @@ public class Step1Bean implements Serializable {
         private String valueCode;
 
         public String getValueName() {
-            return valueName;
+            return valueName == null ? "" : valueName;
         }
 
         public void setValueName(String valueName) {
@@ -51,7 +55,7 @@ public class Step1Bean implements Serializable {
         }
 
         public String getValueCode() {
-            return valueCode;
+            return valueCode == null ? "" : valueCode;
         }
 
         public void setValueCode(String valueCode) {

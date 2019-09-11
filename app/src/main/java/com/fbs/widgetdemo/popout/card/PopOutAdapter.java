@@ -1,11 +1,10 @@
-package com.fbs.widgetdemo.popout;
+package com.fbs.widgetdemo.popout.card;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,10 +40,16 @@ public class PopOutAdapter extends RecyclerView.Adapter<PopOutAdapter.VH> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull VH holder, int position) {
+    public void onBindViewHolder(@NonNull VH holder, final int position) {
         holder.Im.setImageDrawable(mDatas.get(position).getDrawable());
-        if (itemListener!=null)
-            itemListener.onItemClick(mDatas.get(position));
+        holder.II.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (itemListener!=null)
+                    itemListener.onItemClick(mDatas.get(position));
+            }
+        });
+
     }
 
     @Override
@@ -54,10 +59,12 @@ public class PopOutAdapter extends RecyclerView.Adapter<PopOutAdapter.VH> {
 
     public class VH extends RecyclerView.ViewHolder {
         private final ImageView Im;
+        private final LinearLayout II;
 
         public VH(@NonNull View itemView) {
             super(itemView);
             Im = (ImageView) itemView.findViewById(R.id.pop_item_iv);
+            II= (LinearLayout) itemView.findViewById(R.id.ll_pop_item);
         }
     }
 }

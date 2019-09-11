@@ -1,4 +1,4 @@
-package com.fbs.widgetdemo.popout;
+package com.fbs.widgetdemo.popout.card;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fbs.widgetdemo.R;
-import com.fbs.widgetdemo.utils.CustomPopWindow;
+import com.fbs.widgetdemo.utils.pop.CustomPopWindow;
 import com.fbs.widgetdemo.utils.RegularUtil;
 import com.fbs.widgetdemo.utils.universaladapter.OnItemClickListener;
 
@@ -35,11 +35,11 @@ public class CardIdDialog {
         void save(String cardCode, String cardName, String cardNo);
     }
 
-    private void showToast(Context activity, String mContent) {
+    private static void showToast(Context activity, String mContent) {
         Toast.makeText(activity, mContent, Toast.LENGTH_SHORT).show();
     }
 
-    public AlertDialog showCardIdDialog(final Context activity, final int useType, final Step1Bean step1Bean, final RentDialogListener listener) {
+    public static AlertDialog showCardIdDialog(final Context activity, final Step1Bean step1Bean, final RentDialogListener listener) {
         final AlertDialog dialog = new AlertDialog.Builder(activity)
                 .create();
 
